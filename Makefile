@@ -1,5 +1,5 @@
 include_dir=build
-source=chapters/*.md
+source=capitulos/*.md
 title='Git - Manual de usuario'
 filename='git_manual'
 distdir=dist
@@ -44,10 +44,6 @@ rtf: markdown
 		--smart
 
 pdf: markdown
-	# You need `pdflatex`
-	# OS X: http://www.tug.org/mactex/
-	# Then find its path: find /usr/ -name "pdflatex"
-	# Then symlink it: ln -s /path/to/pdflatex /usr/local/bin
 	pandoc -s $(distdir)/$(filename).md -o $(distdir)/$(filename).pdf \
 		--title-prefix $(title) \
 		--normalize \
