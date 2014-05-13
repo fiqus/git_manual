@@ -12,4 +12,4 @@
 
 #### Linux (Debian based):
 
-<code>apt-get install pandoc texlive-latex-base texlive-fonts-recommended cm-super etoolbox texlive-xetex</code>
+<code>apt-get install pandoc texlive-latex-base texlive-fonts-recommended cm-super etoolbox texlive-xetex pdftk</code>

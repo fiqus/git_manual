@@ -1,7 +1,7 @@
 include_dir=build
 source=capitulos/*.md
 title='Git - Manual de usuario'
-filename='git_manual'
+filename=git_manual
 distdir=dist
 
 
@@ -44,12 +44,16 @@ rtf: markdown
 		--smart
 
 pdf: markdown
-	pandoc -s $(distdir)/$(filename).md -o $(distdir)/$(filename).pdf \
+
+	pandoc -s $(distdir)/$(filename).md -o $(distdir)/$(filename)_tmp.pdf \
 		--title-prefix $(title) \
 		--normalize \
 		--smart \
 		--toc \
 		--latex-engine=`which xelatex` 
+
+	pdftk $(include_dir)/cover.pdf $(distdir)/$(filename)_tmp.pdf cat output $(distdir)/$(filename).pdf
+	rm $(distdir)/$(filename)_tmp.pdf
 
 #mobi: epub
 #	# Download: http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1000765211
